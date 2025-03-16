@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🎂 Feliz Cumpleaños, Mi Amor 🎉</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section id="inicio" class="inicio">
+      <div class="carta" onclick="mostrarPagina()">
+        <p>✨ Haz clic aquí para descubrir tu sorpresa 🎁</p>
+      </div>
+    </section>
+
+    <main id="contenido" class="contenido oculto">
+      <header>
+        <h1>🎉 Feliz Cumpleaños, Mi Amor 🎂</h1>
+      </header>
+
+      
+
+      <section class="galeria">
+        <h2>📸 Nuestros Momentos</h2>
+        <div class="imagenes">
+          <img
+            src="Fotos/IMG-20240428-WA0015.jpg"
+            alt="Nosotros 1"
+            class="imagen-cuadrada"
+          />
+          <img
+            src="Fotos/IMG-20240424-WA0080.jpg"
+            alt="Nosotros 2"
+            class="imagen-cuadrada"
+          />
+          <img
+            src="Fotos/IMG-20240331-WA0094(1).jpg"
+            alt="Nosotros 3"
+            class="imagen-cuadrada"
+          />
+        </div>
+      </section>
+
+      <section class="musica">
+        <h2>🎶 Nuestra Canción Especial</h2>
+        <iframe
+          style="border-radius: 12px"
+          src="https://open.spotify.com/embed/track/5tyznRXlcIx0XlQ7S8iCMW?utm_source=generator"
+          width="50%"
+          height="152"
+          frameborder="0"
+          allowfullscreen
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+        ></iframe>
+      </section>
+
+      <section id="tiempo-juntos" class="tiempo-juntos"></section>
+
+      <section class="mensaje">
+        <h2>💌 Un Mensaje Para Ti</h2>
+        <p>Hoy es un día especial, no solo porque sumas un año mash de vida, sino porque es una oportunidad para celebrar lo increíble que eres y todo lo que has logrado. Un año más de aprendizajes, de risas, de momentos inolvidables, de retos superados y de sueños que poco a poco se hacen realidad. No todos los días se celebran los 19 años a alguien tan especial, bella e increible, así que hoy quiero recordarte lo valiosa que eres y todo lo maravilloso que mereces en la vida.</p>
+        
+        <p>En este nuevo añito que comienza, deseo que cada día esté lleno de alegría, que la vida te sorprenda con cosas bonitas y que sigas avanzando con la misma pasión y determinación que siempre te han caracterizado. Que nunca te falten motivos para sonreír, personas que te llenen de amor y apoyo, y momentos que te hagan sentir feliz jjjj. Porque si alguien merece lo mejor, sin duda eres tú.</p>
+        
+        <p>Sé que la vida no siempre es fácil, pero si hay algo que admiro profundamente de ti es tu fortaleza, tu capacidad de levantarte ante cualquier desafío y tu forma única de transformar cada obstáculo en una nueva oportunidad. Que este año traiga muchas victorias, pero también instantes de calma, de descanso y de disfrute, porque la felicidad no solo está en alcanzar metas, sino en cada paso del camino.</p>
+        
+        <p>Hoy, permítete brillar aún más. Deja que el cariño de quienes te rodean llene tu corazón (solo io i tu mami jjj), que cada palabra bonita que recibas sea un reflejo de todo lo hermoso que hay en ti. Celebra a lo grande o a tu manera, pero sobre todo, celebra la persona maravillosa que eres, no solo hoy, sino siempre.</p>
+        
+        <p>Gracias por existir, por todo lo que has hecho por mi y hacerme sentir tan amado. Sigue siendo auténtica, sigue persiguiendo tus sueños y nunca dejes de creer en ti.</p>
+        
+        <p><strong>¡Feliz cumpleaños MI AMOOOOOOOOOR! Que este nuevo año de vida sea inolvidable y esté lleno de momentos que hagan vibrar tu alma. Te amoo.</strong></p>
+    </section>
+    
+
+      <section class="video">
+        <h2>🎥 Un Recuerdo Inolvidable</h2>
+        <video controls width="40%" style="border-radius: 12px">
+          <source
+            src="Videos/VID-20240107-WA0038.mp4#t=5,30"
+            type="video/mp4"
+          />
+          Tu navegador no soporta la reproducción de videos.
+        </video>
+      </section>
+
+      <section class="deseos">
+        <h2>🌟 Nuestros Sueños</h2>
+        <ul>
+            <li>🏡 Irnos a vivir juntos y construir nuestro hogar.</li>
+            <li>🚗 Viajar y pasear por lugares hermosos.</li>
+            <li>🎶 Ir a un concierto de nuestros artistas favoritos.</li>
+            <li>💖 Amarnos muchísimo cada día más.</li>
+        </ul>
+    </section>
+
+      <section class="comentarios">
+        <h2>💬 Dime Lo Que Piensas</h2>
+        <textarea id="comentario" placeholder="Escribe algo aquí..."></textarea>
+        <button onclick="enviarComentario()">Enviar</button>
+        <p id="respuesta"></p>
+      </section>
+    </main>
+
+    <script>
+      function mostrarPagina() {
+        let inicio = document.getElementById("inicio");
+        let contenido = document.getElementById("contenido");
+
+        inicio.style.display = "none";
+
+        contenido.style.display = "block";
+
+        calcularTiempoJuntos();
+        cuentaRegresiva();
+      }
+
+      function calcularTiempoJuntos() {
+        const fechaConocimos = new Date("2024-01-06"); 
+        const hoy = new Date();
+        const diferenciaTiempo = hoy - fechaConocimos;
+        const diasJuntos = Math.floor(diferenciaTiempo / (1000 * 60 * 60 * 24));
+
+        document.getElementById(
+          "tiempo-juntos"
+        ).innerHTML = `<h2>💖 Llevamos juntos ${diasJuntos} días</h2>`;
+      }
+
+
+      function cuentaRegresiva() {
+        const fechaCumple = new Date(new Date().getFullYear(), 3, 28);
+        const hoy = new Date();
+        const tiempoFaltante = fechaCumple - hoy;
+        const dias = Math.floor(tiempoFaltante / (1000 * 60 * 60 * 24));
+        document.getElementById(
+          "tiempo-restante"
+        )
+      }
+
+
+      function enviarComentario() {
+        const comentario = document.getElementById("comentario").value;
+        document.getElementById(
+          "respuesta"
+        ).innerText = `Tu mensaje: "${comentario}" ha sido enviado 💖`;
+      }
+    </script>
+  </body>
+</html>
